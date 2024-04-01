@@ -1,7 +1,7 @@
 package orderbook
 
 import (
-	"orderbook/internal/models"
+	"github.com/GitEagleY/Orderbook/internal/models"
 )
 
 // OrderHeap is a slice of Order structs that implements the heap.Interface.

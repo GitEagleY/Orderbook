@@ -3,8 +3,9 @@ package handlers
 import (
 	"fmt"
 	"log"
-	"orderbook/internal/models"
-	"orderbook/internal/orderbook"
+
+	"github.com/GitEagleY/Orderbook/internal/models"
+	"github.com/GitEagleY/Orderbook/internal/orderbook"
 )
 
 func PlaceOrder(ob *orderbook.OrderBook) {

@@ -2,9 +2,10 @@ package orderbook
 
 import (
 	"container/heap"
-	"orderbook/internal/models"
 	"sort"
 	"sync"
+
+	"github.com/GitEagleY/Orderbook/internal/models"
 )
 
 type OrderBook struct {

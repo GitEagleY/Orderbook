@@ -3,9 +3,10 @@ package main
 import (
 	"fmt"
 	"log"
-	"orderbook/internal/handlers"
-	"orderbook/internal/orderbook"
 	"os"
+
+	"github.com/GitEagleY/Orderbook/internal/handlers"
+	"github.com/GitEagleY/Orderbook/internal/orderbook"
 )
 
 func main() {

@@ -2,9 +2,10 @@ package orderbook_test
 
 import (
 	"math/rand"
-	"orderbook/internal/models"
-	"orderbook/internal/orderbook"
 	"testing"
+
+	"github.com/GitEagleY/Orderbook/internal/models"
+	"github.com/GitEagleY/Orderbook/internal/orderbook"
 )
 
 // benchmark by adding 100000 random orders and finding matches.
