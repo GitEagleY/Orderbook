@@ -10,9 +10,13 @@ Before running the program, ensure you have Go installed on your system. You can
 2.  Navigate to the project directory in your terminal.
 3.  Run the following command to build and execute the program:
 
-    `go run cmd/main.go` - Linux/Mac
+Linux/Mac:
 
-    `go run cmd\main.go` - Win 10
+    go run cmd/main.go
+
+Win 10:
+
+    go run cmd\main.go
 
 ## Data Structures
 
@@ -38,23 +42,26 @@ Concurrency is implemented using mutexes to ensure thread safety when accessing 
 The project includes benchmark tests to measure the performance of critical components, such as finding matches.
 To run the benchmark tests, execute the following command:
 
-`cd internal/orderbook && go test -bench=.` - Linux/Mac
+Linux/Mac:
 
-`cd internal\orderbook && go test -bench=.` - Win10
+    cd internal/orderbook && go test -bench=.
+
+Win10:
+
+    cd internal\orderbook && go test -bench=.
 
 personally I receive 0,8s of time by sorting 100000 matches
 
 ## Efficiency and Big O Notation
 
-    PlaceOrder:
-        Insertion into the heap: O(log n)
-        Calculating balance changes: O(1)
+PlaceOrder:  
+- Insertion into the heap: O(log n)
+- Calculating balance changes: O(1)
+FindMatches:
+- Nested loop iterating over all buy and sell orders with binary search: O(log n)
 
-    FindMatches:
-        Nested loop iterating over all buy and sell orders with binary search: O(log n)
-
-    GetAllOrders:
-        Iterating over all buy and sell orders: O(n)
+GetAllOrders:
+- Iterating over all buy and sell orders: O(n)
 
 ## Time
 
