@@ -25,7 +25,18 @@ Win 10:
 
 ## Algorithm for Matching Orders
 
-- **Matching Algorithm**: The algorithm iterates through the buy and sell orders simultaneously, comparing the prices of buy and sell orders. If the buy price is greater than or equal to the sell price, and the amount of the seller is greater than or equal to the amount the buyer wants, a match is found.
+1. Locking the Mutex: The function begins by acquiring a lock on the mutex (ob.mutex.Lock()) to ensure exclusive access to the OrderBook data structure. This prevents concurrent modifications to the data.
+
+2. Sorting: The buy and sell orders are sorted by price using sort.SliceStable. Sorting is crucial for binary search to work efficiently because binary search requires the data to be in a sorted order.
+
+3. Binary Search: The function iterates over each buy order in ob.BuyOrders and performs a binary search for matching sell orders in ob.SellOrders. Here's how binary search is applied:
+    1. The function initializes two pointers, left and right, to define the search interval within the ob.SellOrders array.
+    2. Inside a nested loop, the function calculates the middle index (mid) of the search interval and compares the price of the sell order at mid with the price of the current buy order.
+    3. Depending on the comparison, the search interval is narrowed down by updating the left or right pointer.
+    4. If a matching sell order is found (i.e., price and amount match), both the buy and sell orders are appended to the matches slice.
+    5. The binary search continues until either a match is found or the search interval is empty.
+
+4. Returning Results: After all buy orders are processed, the function returns the matches slice containing pairs of matching buy and sell orders. It also releases the lock on the mutex (ob.mutex.Unlock()).
 
 ## Concurrency
 
